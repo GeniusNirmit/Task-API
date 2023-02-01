@@ -4,7 +4,11 @@ const User = require('../models/user.models')
 const router = new express.Router()
 
 // Create Task
-router.post('/tasks', async (req,res) => {  
+router.post('/tasks', async (req,res) => {
+    const getUser = await User.findById(req.body.taskOwner)
+    if(!getUser)
+        return res.status(404).send()
+        
     const task = new Task(req.body)
 
     try {
