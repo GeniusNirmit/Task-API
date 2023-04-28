@@ -1,22 +1,22 @@
 const mongoose = require('mongoose')
 
 const taskSchema = new mongoose.Schema({
-    taskTitle: {
+    task_title: {
         type: String,
         required: true,
         trim: true,
         maxlength: 20
     },
-    taskDescription: {
+    task_description: {
         type: String,
         required: true,
         trim: true
     },
-    taskStatus: {
+    task_status: {
         type: Boolean,
         default: false
     },
-    taskOwner: {
+    task_owner: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'User'

@@ -1,13 +1,13 @@
 const mongoose = require("mongoose")
 
 const userSchema = new mongoose.Schema ({
-    userName: 
+    user_name: 
     {
         type: String,
         required: true,
         trim: true
     },
-    userEmail: 
+    user_email: 
     {
         type: String,
         required: true,
@@ -21,10 +21,9 @@ const userSchema = new mongoose.Schema ({
             }
         }
     },
-    userPassword: 
+    user_password: 
     {
         type: String,
-        required: true,
         trim: true,
         minlength: 8,
         validate(password) {
@@ -32,6 +31,15 @@ const userSchema = new mongoose.Schema ({
                 throw new Error('Password cannnot contain "password"')
             }
         }
+    },
+    source: 
+    {
+        type: String, 
+        required: true,
+    },
+    user_token:
+    {
+        type: String
     }
 }, {
     timestamps: true
